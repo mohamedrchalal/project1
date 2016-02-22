@@ -1,4 +1,5 @@
-deadpoolTrivia = {
+function startGame(){
+  deadpoolTrivia = {
   questions: [
     'What DC comics character is Deadpool similar to?',
     'What is deadpools real name?',
@@ -13,7 +14,7 @@ deadpoolTrivia = {
     'which country is deadpool from?'
   ],
   answersA: ['a. Superman','a. slade wilson','a. Desert Storm',
-    'a. Wolverine b.','a. regenration','a. wolverine',
+    'a. Wolverine','a. regenration','a. wolverine',
     'a. childhood nickname','a. heterosexual','a. thomas',
     'a. great wall of china','a. Mexico'],
   answersB: ['b. batman','b. clark kent','b. CIA',
@@ -28,14 +29,43 @@ deadpoolTrivia = {
     'd. spiderman','d. all of the above','d. captain america',
     'd. a bet','d. omnisexual','d. francis',
     'd. fourth wall','d. Canada'],
+  correctAnswers: ['d. deathstroke','d. wade wilson','d. weapon X',
+    'd. spiderman','d. all of the above','d. captain america',
+    'd. a bet','d. omnisexual','d. francis',
+    'd. fourth wall','d. Canada'],
 };
-var i = 0;
+score = 0;
+i = 0;
 var questions = document.getElementById('questions');
 var answerA = document.getElementById('answerA');
 var answerB = document.getElementById('answerB');
 var answerC = document.getElementById('answerC');
 var answerD = document.getElementById('answerD');
 
-populateQuestions: function(){
+function populateQuestionAnswers(){
+  questions.innerHTML = deadpoolTrivia.questions[i];
+  answerA.innerHTML = deadpoolTrivia.answersA[i];
+  answerB.innerHTML = deadpoolTrivia.answersB[i];
+  answerC.innerHTML = deadpoolTrivia.answersC[i];
+  answerD.innerHTML = deadpoolTrivia.answersD[i];
 
 }
+populateQuestionAnswers()
+
+nextQuestion = function(){
+i=i+1;
+populateQuestionAnswers();
+  if (i>=deadpoolTrivia.questions.length){
+    alert('your score is'+ score +'!')
+    startGame();
+  }
+}
+
+for(j=0;j<document.querySelectorAll('.answers').length;j++){
+  document.querySelectorAll('.answers')[j].addEventListener('click',nextQuestion);
+  if (document.querySelectorAll('.answers').innerHTML == deadpoolTrivia.correctAnswers[i]){
+    score = score +1;
+  }
+  }
+}
+startGame();
