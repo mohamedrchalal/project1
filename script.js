@@ -53,19 +53,24 @@ function populateQuestionAnswers(){
 populateQuestionAnswers()
 
 nextQuestion = function(){
-i=i+1;
-populateQuestionAnswers();
-  if (i>=deadpoolTrivia.questions.length){
-    alert('your score is'+ score +'!')
-    startGame();
-  }
+  console.log(this.innerHTML);
+  ayyyLmao = this.innerHTML;
+  i=i+1;
+    populateQuestionAnswers();
+      if (this.innerHTML == deadpoolTrivia.correctAnswers[i]){
+        score++;
+      }
+        if (i>=deadpoolTrivia.questions.length){
+          alert('your score is'+ score +'!')
+            startGame();
+    }
 }
 
-for(j=0;j<document.querySelectorAll('.answers').length;j++){
+eventListening = function(){
+for (j=0;j<document.querySelectorAll('.answers').length;j++){
   document.querySelectorAll('.answers')[j].addEventListener('click',nextQuestion);
-  if (document.querySelectorAll('.answers').innerHTML == deadpoolTrivia.correctAnswers[i]){
-    score = score +1;
   }
-  }
+ }
 }
 startGame();
+eventListening();
