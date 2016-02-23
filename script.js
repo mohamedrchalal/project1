@@ -61,12 +61,12 @@ nextQuestion = function(){
         console.log(score,i)
       }
       i=i+1;
-      populateQuestionAnswers();
+populateQuestionAnswers();
       document.getElementById('score').innerHTML = score;
         if (i>=deadpoolTrivia.questions.length){
           console.log(score,i);
-          alert('your score is'+ (score) +'!')
-            startGame();
+            alert('your score is'+ (score) +'!')
+              startGame();
     }
 }
 
