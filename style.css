@@ -1,19 +1,33 @@
 
 body {
   border:20px solid white;
+  border-style: double;
+  max-width: 800px;
   padding:20px;
-  background: #000;
   margin: 0 auto;
   margin-top: 90px;
+  background-image: url('http://hdwallpapersd.com/wp-content/uploads/2015/10/arrow-through-the-head-deadpool-high-resolution-wallpaper.jpeg');
+  background-size: cover;
+  background-color: #000;
 }
 h1 {
-  margin: 90px;
+  position: absolute;
+  top: 20px;
+  left: 270px;
   text-align: center;
   color: white;
 }
+h2 {
+  color: white;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-align:center;
+  margin: 0 auto;
+}
 .answers {
-  display: inline-flex;
-  align-self: center;
-  margin-left: 150px;
-  padding: 20px;
+  display: inline-block;
+  margin: 20px,20px,20px,20px;
+  padding: 20px,20px,20px,20px;
+  max-width: 250px;
 }

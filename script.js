@@ -41,6 +41,7 @@ var answerA = document.getElementById('answerA');
 var answerB = document.getElementById('answerB');
 var answerC = document.getElementById('answerC');
 var answerD = document.getElementById('answerD');
+document.getElementById('score').innerHTML = score;
 
 function populateQuestionAnswers(){
   questions.innerHTML = deadpoolTrivia.questions[i];
@@ -48,20 +49,23 @@ function populateQuestionAnswers(){
   answerB.innerHTML = deadpoolTrivia.answersB[i];
   answerC.innerHTML = deadpoolTrivia.answersC[i];
   answerD.innerHTML = deadpoolTrivia.answersD[i];
-
 }
 populateQuestionAnswers()
 
 nextQuestion = function(){
   console.log(this.innerHTML);
   ayyyLmao = this.innerHTML;
-  i=i+1;
-    populateQuestionAnswers();
+  console.log(this.innerHTML == deadpoolTrivia.correctAnswers[i]);
       if (this.innerHTML == deadpoolTrivia.correctAnswers[i]){
         score++;
+        console.log(score,i)
       }
+      i=i+1;
+      populateQuestionAnswers();
+      document.getElementById('score').innerHTML = score;
         if (i>=deadpoolTrivia.questions.length){
-          alert('your score is'+ score +'!')
+          console.log(score,i);
+          alert('your score is'+ (score) +'!')
             startGame();
     }
 }
