@@ -29,6 +29,15 @@ h2 {
   text-align:left;
   margin: 0 auto;
 }
+h3 {
+  font: inherit;
+  color: white;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  text-align:right;
+  margin: 0 auto;
+}
 .answers {
   display: inline-block;
   text-align: center;
