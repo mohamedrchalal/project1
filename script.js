@@ -1,5 +1,5 @@
 function startGame(){
-  deadpoolTrivia = {
+deadpoolTrivia = {
   questions: [
     'What DC comics character is Deadpool similar to?',
     'What is deadpools real name?',
@@ -35,13 +35,16 @@ function startGame(){
     'd. fourth wall','d. Canada'],
 };
 score = 0;
+time = 0;
 i = 0;
 var questions = document.getElementById('questions');
 var answerA = document.getElementById('answerA');
 var answerB = document.getElementById('answerB');
 var answerC = document.getElementById('answerC');
 var answerD = document.getElementById('answerD');
+var TimerStart = document.getElementById('startTimer')
 document.getElementById('score').innerHTML = score;
+document.getElementById('time').innerHTML = time;
 
 function populateQuestionAnswers(){
   questions.innerHTML = deadpoolTrivia.questions[i];
@@ -52,10 +55,17 @@ function populateQuestionAnswers(){
 }
 populateQuestionAnswers()
 
+startTimer = setInterval(Timer,1000);
+
+function Timer(){
+  time++;
+  document.getElementById('time').innerHTML = time;
+};
+
 nextQuestion = function(){
-  console.log(this.innerHTML);
-  ayyyLmao = this.innerHTML;
-  console.log(this.innerHTML == deadpoolTrivia.correctAnswers[i]);
+  // console.log(this.innerHTML);
+  // ayyyLmao = this.innerHTML;
+  // console.log(this.innerHTML == deadpoolTrivia.correctAnswers[i]);
       if (this.innerHTML == deadpoolTrivia.correctAnswers[i]){
         score++;
         console.log(score,i)
@@ -65,6 +75,7 @@ populateQuestionAnswers();
       document.getElementById('score').innerHTML = score;
         if (i>=deadpoolTrivia.questions.length){
           console.log(score,i);
+          clearInterval(startTimer)
             alert('your score is'+ (score) +'!')
               startGame();
     }
